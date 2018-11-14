@@ -1,6 +1,6 @@
 {
   "name": "@cocopina/environment",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A collection of runtime environment utilities and indicators",
   "author": "Sahar Brodbeker <saharonb@gmail.com>",
   "license": "ISC",

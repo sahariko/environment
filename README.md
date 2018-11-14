@@ -1,69 +1,86 @@
-# Singleton [![](https://img.shields.io/npm/v/@cocopina/singleton.svg?colorA=cb3837&colorB=474a50)](https://www.npmjs.com/package/@cocopina/singleton)
+# environment [![](https://img.shields.io/npm/v/@cocopina/environment.svg?colorA=cb3837&colorB=474a50)](https://www.npmjs.com/package/@cocopina/environment)
 
-A truly global, isomorphoic, extendable JavaScript singleton class.
+A collection of runtime environment utilities and indicators, providing an easy interface to decipher the current runtime environment.
 
 ## Table of Contents
 
-- [Installation and Usage](#installation-and-usage)
-    * [Extending the `Singleton` class](#extending-the-singleton-class)
-    * [Using the `asSingleton` decorator](#using-the-asSingleton-decorator)
+- [Installation](#installation)
 - [API](#api)
-    * [`getInstance [Function]`](#getinstance-function)
-    * [`instance [Object]`](#instance-object)
-    * [`clear [Function]`](#clear-function)
+    * [`globalScope [Object]`](#globalscope-object)
+    * [`node [Boolean]`](#node-boolean)
+    * [`browser [Boolean]`](#browser-boolean)
 
-## Installation and Usage
+## Installation
 
 Install the package:
 ```sh
-npm i @cocopina/singleton
-```
-
-### Extending the `Singleton` class
-
-You can then extend your class to implement the `Singleton` class:
-```js
-import Singleton from '@cocopina/singleton';
-
-class MyClass extends Singleton {}
-
-const a = MyClass.getInstance();
-const b = MyClass.getInstance();
-
-console.log(a === b); // true
-```
-
-### Using the `asSingleton` decorator
-
-You can alternatively use the `asSingleton` decorator like so:
-
-```js
-import { asSingleton } from '@cocopina/singleton';
-
-class MyClass {}
-
-const MySingletonClass = asSingleton(MyClass);
-
-const a = MySingletonClass.getInstance();
-const b = MySingletonClass.getInstance();
-
-console.log(a === b); // true
+npm i @cocopina/environment
 ```
 
 ## API
 
-### `getInstance [Function]`
+### `globalScope [Object]`
 
-Gets the singleton's instance.
+The global scope, can be either "global" or "window".
 
-If none exists, will create a new one and store it on the global scope.
+#### Examples
 
-#### `@return {Object}`
+```js
+// Browser
 
-### `instance [Object]`
+import { globalScope } from '@cocopina/environment';
 
-Gets the singleton's instance, an alias for `getInstance()`.
+console.log(globalScope === window); // true
+```
 
-### `clear [Function]`
+```js
+// Node
 
-Clears the singleton's instance from the global scope.
+const { globalScope } = require('@cocopina/environment');
+
+console.log(globalScope === global); // true
+```
+
+### `node [Boolean]`
+
+Whether the current enironment is a node-like environment.
+
+#### Examples
+
+```js
+// Browser
+
+import { node } from '@cocopina/environment';
+
+console.log(node); // false
+```
+
+```js
+// Node
+
+const { node } = require('@cocopina/environment');
+
+console.log(node); // true
+```
+
+### `browser [Boolean]`
+
+Whether the current enironment is a browser environment.
+
+#### Examples
+
+```js
+// Browser
+
+import { browser } from '@cocopina/environment';
+
+console.log(browser); // true
+```
+
+```js
+// Node
+
+const { browser } = require('@cocopina/environment');
+
+console.log(browser); // false
+```
