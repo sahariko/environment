@@ -1,6 +1,6 @@
 {
   "name": "@cocopina/environment",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A collection of runtime environment utilities and indicators",
   "author": "Sahar Brodbeker <saharonb@gmail.com>",
   "license": "ISC",
@@ -9,7 +9,7 @@
     "url": "https://github.com/sahariko/environment.git"
   },
   "homepage": "https://github.com/sahariko/environment",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "jest -c configuration/jest.config.js",
     "lint": "eslint .",
