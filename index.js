@@ -5,7 +5,7 @@ const GLOBAL = 'global';
  * The global scope, can be either "global" or "window".
  * @type {Object}
  */
-export const globalScope = (new Function().constructor('return this'))();
+export const globalScope = (Function().constructor('return this'))();
 
 const checkGlobalObject = (globalObject) => new Function(`try {return this===${globalObject};}catch(e){ return false;}`)();
 
