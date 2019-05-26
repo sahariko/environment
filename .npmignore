@@ -1,0 +1,10 @@
+.circleci
+.github
+configuration
+tests
+.babelrc
+.editorconfig
+.eslintignore
+.eslintrc.js
+.gitignore
+index.js
